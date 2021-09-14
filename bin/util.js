@@ -414,6 +414,10 @@ let downloadVideo = async ({
     }
   }
 
+  if (quality === "high" && downloadUrl.includes("_3500.")) {
+    downloadUrl = downloadUrl.replace("_3500.", "_1500.");
+  }
+
   // Remove second check for `downloadUrl` in next breaking release
   if (archive && (isInArchive(qualityUrl) || isInArchive(downloadUrl))) {
     console.log(`${video.name} at ${quality} quality exists in archive`);
